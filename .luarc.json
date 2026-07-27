@@ -1,8 +1,0 @@
-{
-  "runtime.version": "Lua 5.4",
-  "workspace.checkThirdParty": false,
-  "workspace.library": [
-    "/Users/jimmie/.local/share/prova/lua/annotations",
-    "/Users/jimmie/.cache/prova/plugins/trees/efe96a1c616d797c/65e6f87dceeed156de82a066758138e4e32d5005/library"
-  ]
-}
