@@ -56,18 +56,11 @@ end
 
 for _, overlay in ipairs(specs) do
   prova.group(overlay.label, { tags = { "standards" } }, function(g)
-    p6m.empty.standards.rendering(g, p6m.empty.render(overlay), overlay, {
-      -- golang-ci-library's build.yaml still stops at `go build` / `go test`: no env block, no
-      -- image publish, no release, no manifest dispatch. So E5's three cross-artifact assertions
-      -- have nothing to be consistent WITH — a gap in the ci-library, not a disagreement here.
-      -- Blocked on a decision, not effort: there is no p6m-actions/golang-* action at all, so the
-      -- CD half is either assembled from the language-agnostic actions that do exist (git-cut-tag,
-      -- docker-repository-login, docker-buildx-setup, docker-buildx-build-publish,
-      -- platform-application-manifest-dispatch — rust uses the last four verbatim) or three new
-      -- p6m-actions/golang-* actions get created. That lands on every golang service repo.
-      cd_spec = "golang-ci-library emits no CD half (no p6m-actions/golang-* exists); an overlay"
-        .. " that platform-izes a legacy app and emits no CD does not do its job — YP6M-3172",
-    })
+    -- No cd_spec: golang reached CD parity on 2026-07-27. p6m-actions/golang-{setup,build,cut-tag}
+    -- were created and released at v1, and golang-ci-library's build.yaml now renders the same
+    -- publish → release → manifest-dispatch tail as rust's and dotnet's — so E5's three
+    -- cross-artifact assertions are full proofs here, like everywhere else.
+    p6m.empty.standards.rendering(g, p6m.empty.render(overlay), overlay)
   end)
 end
 
