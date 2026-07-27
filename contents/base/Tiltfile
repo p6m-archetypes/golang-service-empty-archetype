@@ -9,7 +9,7 @@
 docker_build(
     '{{ project-name }}:local',
     '.',
-    dockerfile='Dockerfile',
+    dockerfile='.platform/docker/local/Dockerfile',
 )
 
 # Tell Tilt where the image reference lives inside the PlatformApplication CRD.
