@@ -1,6 +1,6 @@
 # golang-service-empty-archetype
 
-Go **Service Platform Overlay** — generates only the platform *servicing layer* for a
+Go **Retrofit Overlay** — generates only the platform *servicing layer* for a
 service and nothing else. Run it against an **existing** Go project to retrofit it with:
 
 - `.github/workflows/` — CI build + cut-tag (`golang-ci`)
